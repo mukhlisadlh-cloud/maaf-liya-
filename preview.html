@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Liya</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);
+    overflow:hidden;
+}
+.container{
+    text-align:center;
+    max-width:800px;
+    padding:30px;
+    color:white;
+    z-index:2;
+}
+.foto{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid rgba(255,255,255,0.7);
+    box-shadow:0 0 25px rgba(255,255,255,0.3);
+    margin-bottom:25px;
+    animation:float 4s ease-in-out infinite;
+}
+h1{
+    font-size:2.5rem;
+    margin-bottom:20px;
+    color:#ffd6d6;
+    opacity:0;
+    animation:fadeIn 2s forwards;
+}
+.text{
+    font-size:1.2rem;
+    line-height:1.9;
+    opacity:0;
+    animation:fadeIn 3s forwards;
+    animation-delay:1.5s;
+}
+.heart{
+    position:absolute;
+    color:rgba(255,255,255,0.2);
+    animation:fall linear infinite;
+}
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+@keyframes fall{
+    from{transform:translateY(-100vh);}
+    to{transform:translateY(100vh);}
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <img src="foto-liya.jpg" alt="Liya" class="foto">
+    <h1>Maaf Ya, Liya 🤍</h1>
+    <div class="text">
+        Aku, <b>Mukhlis Abdillah</b>, ingin meminta maaf dengan tulus
+        jika selama ini aku pernah mengusik kehidupanmu atau membuatmu
+        merasa tidak nyaman.<br><br>
+        Aku sadar mungkin ada sikap dan tindakan yang kurang baik,
+        dan aku benar-benar menyesal atas hal itu.<br><br>
+        Aku berjanji untuk tidak mengulanginya lagi dan menjadi pribadi
+        yang lebih baik dari sebelumnya.<br><br>
+        Tapi jika boleh jujur, aku berharap kamu tidak pergi dari kehidupan kakak.
+        Kehadiranmu sangat berarti dan berharga bagiku.<br><br>
+        Terima kasih karena sudah membaca pesan ini.
+        Semoga kamu bisa memaafkan semua kesalahanku. 🌷
+    </div>
+</div>
+
+<script>
+for(let i=0;i<30;i++){
+    let heart=document.createElement("div");
+    heart.innerHTML="🤍";
+    heart.classList.add("heart");
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+15)+"px";
+    heart.style.animationDuration=(Math.random()*10+8)+"s";
+    document.body.appendChild(heart);
+}
+</script>
+</body>
+</html>
