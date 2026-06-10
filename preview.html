@@ -3,201 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Untuk Liya ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Untuk Liya</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-    overflow:hidden;
-    background:linear-gradient(to bottom,#050816,#0f172a,#1e293b);
-    color:white;
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:
+radial-gradient(circle at top, rgba(255,255,255,.08), transparent 30%),
+linear-gradient(to bottom,#000,#050505,#0a0a0a,#111);
+color:white;
+}
+
+/* Bulan */
+.moon{
+position:fixed;
+top:50px;
+right:80px;
+width:120px;
+height:120px;
+border-radius:50%;
+background:#ddd;
+box-shadow:
+0 0 40px rgba(255,255,255,.4),
+0 0 100px rgba(255,255,255,.2);
+}
+
+/* Bintang */
+.star{
+position:fixed;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+0%,100%{opacity:.2;}
+50%{opacity:1;}
 }
 
 /* Hujan */
 .rain{
-    position:fixed;
-    width:100%;
-    height:100%;
-    z-index:1;
+position:fixed;
+width:100%;
+height:100%;
 }
 
 .drop{
-    position:absolute;
-    width:2px;
-    height:90px;
-    background:rgba(255,255,255,.25);
-    animation:fall linear infinite;
+position:absolute;
+width:2px;
+height:80px;
+background:rgba(255,255,255,.2);
+animation:fall linear infinite;
 }
 
 @keyframes fall{
-    from{transform:translateY(-100px);}
-    to{transform:translateY(110vh);}
+from{transform:translateY(-100px);}
+to{transform:translateY(110vh);}
 }
 
-/* Karakter */
-.boy{
-    position:absolute;
-    bottom:90px;
-    left:-200px;
-    width:180px;
-    z-index:5;
-    animation:walk 8s forwards;
-}
-
-@keyframes walk{
-    0%{left:-200px;}
-    80%{left:40%;}
-    100%{left:40%;}
-}
-
-.boy svg{
-    width:100%;
-    animation:bounce .6s infinite alternate;
-}
-
-@keyframes bounce{
-    from{transform:translateY(0);}
-    to{transform:translateY(-6px);}
-}
-
-/* Berlutut */
-.kneel{
-    animation:kneel 1.5s forwards;
-}
-
-@keyframes kneel{
-    from{transform:rotate(0);}
-    to{transform:rotate(10deg) translateY(20px);}
-}
-
-/* Konten */
+/* Kotak */
 .container{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:90%;
-    max-width:850px;
-    text-align:center;
-    z-index:10;
+width:90%;
+max-width:850px;
+padding:30px;
+text-align:center;
+z-index:10;
 }
 
-.photo{
-    width:220px;
-    height:220px;
-    border-radius:50%;
-    object-fit:cover;
-    border:6px solid rgba(255,255,255,.7);
-    opacity:0;
-    transform:scale(.7);
-    transition:2s;
-    box-shadow:0 0 40px rgba(255,255,255,.3);
-}
-
-.photo.show{
-    opacity:1;
-    transform:scale(1);
+.title{
+font-size:40px;
+color:#60a5fa;
+margin-bottom:20px;
+text-shadow:
+0 0 10px #60a5fa,
+0 0 20px #60a5fa;
 }
 
 .typing{
-    margin-top:30px;
-    min-height:300px;
-    font-size:20px;
-    line-height:1.9;
-    text-shadow:0 0 10px rgba(255,255,255,.2);
+font-size:20px;
+line-height:2;
+white-space:pre-wrap;
+color:#7dd3fc;
+text-shadow:
+0 0 10px rgba(125,211,252,.4);
 }
 
 .final{
-    opacity:0;
-    margin-top:20px;
-    font-size:35px;
-    color:#ffd1dc;
-    transition:2s;
+opacity:0;
+font-size:35px;
+margin-top:30px;
+color:#60a5fa;
+transition:2s;
+text-shadow:
+0 0 10px #60a5fa,
+0 0 30px #60a5fa;
 }
 
-.final.show{
-    opacity:1;
-}
-
-.heart{
-    position:fixed;
-    color:#ff7aa2;
-    animation:float 10s linear forwards;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(100vh);
-        opacity:0;
-    }
-    20%{opacity:1;}
-    to{
-        transform:translateY(-100px);
-        opacity:0;
-    }
+.show{
+opacity:1;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Musik -->
-<audio autoplay loop>
-    <source src="musik.mp3" type="audio/mpeg">
-</audio>
+<div class="moon"></div>
 
-<!-- Hujan -->
 <div class="rain" id="rain"></div>
 
-<!-- Cowok Kartun -->
-<div class="boy" id="boy">
-<svg viewBox="0 0 200 300">
-<circle cx="100" cy="60" r="35" fill="#f4c2a1"/>
-<rect x="75" y="95" width="50" height="90" rx="10" fill="#1e40af"/>
-<line x1="90" y1="185" x2="75" y2="260" stroke="#000" stroke-width="10"/>
-<line x1="110" y1="185" x2="125" y2="260" stroke="#000" stroke-width="10"/>
-<line x1="75" y1="120" x2="35" y2="170" stroke="#000" stroke-width="10"/>
-<line x1="125" y1="120" x2="165" y2="150" stroke="#000" stroke-width="10"/>
-<circle cx="170" cy="145" r="12" fill="red"/>
-<circle cx="160" cy="138" r="12" fill="red"/>
-<polygon points="150,150 180,150 165,180" fill="green"/>
-</svg>
-</div>
-
 <div class="container">
+<div class="title">Untuk Liya 💙</div>
 
-<img src="liya.jpg" id="photo" class="photo">
+<div id="typing" class="typing"></div>
 
-<div class="typing" id="typing"></div>
-
-<div class="final" id="final">
+<div id="final" class="final">
 ❤️ Jangan pergi dari kakak ya ❤️
 </div>
-
 </div>
 
 <script>
 
-/* Hujan */
-for(let i=0;i<180;i++){
-    const d=document.createElement('div');
-    d.className='drop';
-    d.style.left=Math.random()*100+'%';
-    d.style.animationDuration=(0.5+Math.random())+'s';
-    d.style.opacity=Math.random();
-    document.getElementById('rain').appendChild(d);
+/* Bintang */
+for(let i=0;i<120;i++){
+let s=document.createElement('div');
+s.className='star';
+s.style.left=Math.random()*100+'vw';
+s.style.top=Math.random()*70+'vh';
+s.style.animationDelay=Math.random()*3+'s';
+document.body.appendChild(s);
 }
 
-/* Teks */
+/* Hujan */
+for(let i=0;i<180;i++){
+let d=document.createElement('div');
+d.className='drop';
+d.style.left=Math.random()*100+'%';
+d.style.animationDuration=(0.5+Math.random())+'s';
+d.style.opacity=Math.random();
+document.getElementById('rain').appendChild(d);
+}
+
+/* Pesan */
 const text=`
+Malam ini...
+
+Di bawah hujan yang turun perlahan...
+
+Aku hanya ingin menyampaikan sesuatu yang mungkin sudah lama ingin kusampaikan.
+
 Hai Liya...
 
 Aku, Mukhlis Abdillah.
@@ -225,46 +191,23 @@ Kehadiranmu sangat berarti.
 Semoga semua hal baik selalu menyertaimu.
 
 Maafkan aku.
-❤️
+
+💙
 `;
 
 let i=0;
-
-setTimeout(()=>{
-document.getElementById('boy').classList.add('kneel');
-
-setTimeout(()=>{
-document.getElementById('photo').classList.add('show');
 
 function type(){
 if(i<text.length){
 document.getElementById('typing').innerHTML+=text.charAt(i);
 i++;
-setTimeout(type,55);
+setTimeout(type,60);
 }else{
 document.getElementById('final').classList.add('show');
 }
 }
-type();
 
-},1500);
-
-},8000);
-
-/* Hati */
-setInterval(()=>{
-let h=document.createElement('div');
-h.className='heart';
-h.innerHTML='❤';
-h.style.left=Math.random()*100+'vw';
-h.style.fontSize=(20+Math.random()*25)+'px';
-document.body.appendChild(h);
-
-setTimeout(()=>{
-h.remove();
-},10000);
-
-},800);
+setTimeout(type,1500);
 
 </script>
 
